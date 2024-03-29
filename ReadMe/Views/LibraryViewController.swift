@@ -36,7 +36,10 @@ import SwiftUI
 class LibraryViewController: UITableViewController {
   var dataSource: LibraryDataSource!
   
-  @IBSegueAction func showDetailView(_ coder: NSCoder) -> DetailViewController? {
+	@IBSegueAction func showNewBookView(_ coder: NSCoder) -> UIViewController? {
+		return UIHostingController(coder: coder, rootView: NewBookView())
+	}
+	@IBSegueAction func showDetailView(_ coder: NSCoder) -> DetailViewController? {
     guard let indexPath = tableView.indexPathForSelectedRow,
           let book  = dataSource.itemIdentifier(for: indexPath)
     else { fatalError("Nothing selected!") }
