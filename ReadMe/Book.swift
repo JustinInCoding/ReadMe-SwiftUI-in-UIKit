@@ -30,15 +30,16 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
+import Combine
 import UIKit
 
-final class Book {
-  var image: UIImage?
+final class Book: ObservableObject {
+  @Published var image: UIImage?
 
   let title: String
   let author: String
   var review: String?
-  var readMe: Bool
+  @Published var readMe: Bool
   
   init(title: String, author: String, review: String? = nil, readMe: Bool = true, image: UIImage? = nil) {
     self.title = title
