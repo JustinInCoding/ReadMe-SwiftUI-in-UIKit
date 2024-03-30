@@ -37,6 +37,16 @@ struct BookImage: View {
 							label: {
 								bookmark
 									.frame(height: geometry.size.height / 5)
+								// Add a blur view background
+									.background(
+										UIBlurEffect.View(blurStyle: .light)
+											.mask(
+												Image(systemName: LibrarySymbol.bookmarkFill)
+													.resizable()
+													.scaledToFit()
+													.frame(height: geometry.size.height / 5)
+											)
+									)
 							}
 							.padding()
 						
@@ -50,8 +60,11 @@ struct BookImage: View {
 					.foregroundColor(Color("ImageText"))
 					.blendMode(.colorDodge)
 					.background(
-						Color.accentColor
-							.opacity(0.75)
+						// Replace with a swiftUI View
+//						Color.accentColor
+//							.opacity(0.75)
+						UIBlurEffect.View(blurStyle: .regular)
+							.colorMultiply(.accentColor)
 					)
 				}
 			.cornerRadius(25)
